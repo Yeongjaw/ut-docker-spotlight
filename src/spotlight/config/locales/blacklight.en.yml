@@ -1,0 +1,22 @@
+en:
+  blacklight:
+    application_name: 'UT Libraries Exhibits'
+
+    header_links:
+      about: 'About'
+      help: 'Help'
+      contact: 'Contact'
+
+    about:
+      title: 'About'
+      page_title: 'About - %{application_name}'
+      subtitle: 'Open Source Technology'
+
+    help:
+      title: 'Help'
+      page_title: 'Help - %{application_name}'
+      text: 'This is the help section'
+
+    contact:
+      title: 'Contact'
+      page_title: 'Contact - %{application_name}'

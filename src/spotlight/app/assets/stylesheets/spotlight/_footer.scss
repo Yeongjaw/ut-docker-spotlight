@@ -1,0 +1,66 @@
+.ut-footer {
+ background-color: #f7f7f7;
+}
+
+.footer-brand {
+  background: transparent image_url('blacklight/ut-libraries-logo_1.png') no-repeat top left;
+  // background: transparent $footer-logo no-repeat top left;
+  background-size: contain;
+
+  overflow: hidden;
+  width: 300px;
+  height: 50px;
+  margin-top: .5rem;
+  text-indent: 100%;
+}
+
+.chat {
+  background: transparent image_url('blacklight/chat.png') no-repeat top right;
+  // background: transparent $chat-logo no-repeat top right;
+  background-size: contain;
+
+  overflow: hidden;
+  width: 150px;
+  height: 45px;
+  text-indent: 100%;
+}
+
+@media screen and (max-width : 480px) {
+   .footer-brand {
+     width: 280px;
+   }
+   .chat {
+     width: 140px;
+   }
+}
+
+@media screen and (max-width : 450px) {
+   .footer-brand {
+     width: 250px;
+   }
+   .chat {
+     margin-top: .5rem;
+     width: 120px;
+   }
+}
+
+@media screen and (max-width : 375px) {
+   .footer-brand {
+     width: 200px;
+   }
+   .chat {
+     margin-top: .5rem;
+     width: 100px;
+   }
+}
+
+@media screen and (max-width : 320px) {
+   .footer-brand {
+     margin-top: 1rem;
+     width: 180px;
+   }
+   .chat {
+     margin-top: 1rem;
+     width: 90px;
+   }
+}

@@ -1,0 +1,25 @@
+.navbar-search {
+  z-index: 1;
+
+  .search-field {
+    // This prevents the widget from being squished so the text overflows
+    min-width: 7em;
+  }
+
+  .search-query-form {
+    // @extend .col-md-12;
+    // @extend .col-lg-9;
+    // @extend .col-lg-8;
+    padding-left: 0;
+    @media screen and (max-width: breakpoint-max(xs)) {
+      padding-right: 0;
+    }
+  }
+
+  .submit-search-text {
+    // hide 'search' label at very small screens
+    @media screen and (max-width: breakpoint-max(sm)) {
+      // @include sr-only();
+    }
+  }
+}

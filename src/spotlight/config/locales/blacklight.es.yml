@@ -1,0 +1,22 @@
+es:
+  blacklight:
+    application_name: 'Exhibiciones de Bibliotecas de UT'
+
+    header_links:
+      about: 'Información'
+      help: 'Ayuda'
+      contact: 'Comentarios'
+
+    about:
+      title: 'About'
+      page_title: 'Información - %{application_name}'
+      subtitle: 'Open Source Technology'
+
+    help:
+      title: 'Help'
+      page_title: 'Ayuda - %{application_name}'
+      text: 'This is the help section'
+
+    contact:
+      title: 'Contact'
+      page_title: 'Comentarios - %{application_name}'

@@ -1,0 +1,31 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  collation: utf8mb4_bin
+  pool: 10
+  port: 3306
+  sslcipher: DHE-RSA-AES256-SHA
+  sslcapath: <%= ENV.fetch("SPOTLIGHT_SSLCAPATH") %>
+  sslca: <%= ENV.fetch("SPOTLIGHT_SSLCA") %>
+  sslkey: <%= ENV.fetch("SPOTLIGHT_SSLKEY") %>
+  sslcert: <%= ENV.fetch("SPOTLIGHT_SSLCERT") %>
+  database: <%= ENV.fetch("SPOTLIGHT_MYSQL_DATABASE") %>
+  username: <%= ENV.fetch("SPOTLIGHT_MYSQL_USERNAME") %>
+  password: "<%= ENV.fetch("SPOTLIGHT_MYSQL_PASSWORD") %>"
+
+development:
+  <<: *default
+  host: mysqldev01.austin.utexas.edu
+  # database: db/development.sqlite3
+
+test:
+  <<: *default
+  host: mysqldev01.austin.utexas.edu
+
+qual:
+  <<: *default
+  host: mysqlqual01.austin.utexas.edu
+
+prod:
+  <<: *default
+  host: mysqlprod01.austin.utexas.edu

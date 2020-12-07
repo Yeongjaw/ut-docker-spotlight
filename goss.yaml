@@ -1,0 +1,7 @@
+command:
+  yum check-update --quiet | grep '^[[:alnum:]]' | wc -l:
+    exit-status: 0
+    stdout:
+    - "0"
+    stderr: []
+    timeout: 120000

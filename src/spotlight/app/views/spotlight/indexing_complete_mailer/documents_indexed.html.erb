@@ -1,0 +1,42 @@
+<p><%= t :".title" %></p>
+
+<p><%= t :".body", uploaded: @uploaded, count: @number, title: @exhibit.title %></p>
+
+<% if @error_items.length > 0 %>
+  <p><%= t :".error_body" %></p>
+
+  <table>
+    <tr>
+      <th>URL</th>
+      <th>Title</th>
+      <th>Creator</th>
+      <th>Date Created</th>
+      <th>Access</th>
+    </tr>
+
+    <% @error_items.each do |item| %>
+      <tr>
+        <% for i in 0..4 %>
+          <% if item[i] %>
+            <td><%= item[i] %></td>
+          <% else %>
+            <td style="color:red">MISSING</td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+
+  </table>
+
+  <style>
+    table {
+      width: 100%;
+    }
+    
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      text-align: center;
+    }
+  </style>
+<% end -%>

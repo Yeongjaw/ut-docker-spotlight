@@ -1,0 +1,73 @@
+<% doc_presenter = show_presenter(document) %>
+<%# default partial to display solr document fields in catalog show view -%>
+
+<% if @document['iiif_manifest_url_ssi'] %>
+  <div id="mirador"></div>
+  <script>
+    var mirador = Mirador.viewer({
+      id: "mirador",
+      selectedTheme: 'dark',
+      windows: [
+        {
+          manifestId: "<%= @document['iiif_manifest_url_ssi'] %>"
+        }
+      ],
+      window: {
+        allowClose: false, // Configure if windows can be closed or not
+        allowFullscreen: false, // Configure to show a "fullscreen" button in the WindowTopBar
+        allowMaximize: false, // Configure if windows can be maximized or not
+        // allowTopMenuButton: true, // Configure if window view and thumbnail display menu are visible or not
+        // allowWindowSideBar: true, // Configure if side bar menu is visible or not
+        // authNewWindowCenter: 'parent', // Configure how to center a new window created by the authentication flow. Options: parent, screen
+        defaultSideBarPanel: 'info', // Configure which sidebar is selected by default. Options: info, attribution, canvas, annotations, search
+        defaultSidebarPanelWidth: 235, // Configure default sidebar width in pixels
+        defaultView: 'single',  // Configure which viewing mode (e.g. single, book, gallery) for windows to be opened in
+        hideWindowTitle: false, // Configure if the window title is shown in the window title bar or not
+        // showLocalePicker: false, // Configure locale picker for multi-lingual metadata
+        // sideBarOpenByDefault: false, // Configure if the sidebar (and its content panel) is open by default
+        // panels: { // Configure which panels are visible in WindowSideBarButtons
+        //   info: true,
+        //   attribution: true,
+        //   canvas: false,
+        //   annotations: true,
+        //   search: true,
+        // }
+        views: [
+          { key: 'single'},
+          { key: 'book' },
+          { key: 'gallery' },
+          // { key: 'scroll', behaviors: ['continuous'] },
+        ],
+      },
+      workspaceControlPanel: {
+        enabled: false, // Configure if the control panel should be rendered.  Useful if you want to lock the viewer down to only the configured manifests
+      },
+      galleryView: {
+        height: 120, // height of gallery view thumbnails
+        width: null, // width of gallery view thumbnails (or null, to auto-calculate an aspect-ratio appropriate size)
+      },
+      thumbnailNavigation: {
+        defaultPosition: 'hidden', // Which position for the thumbnail navigation to be be displayed. Other possible values are "far-bottom" or "far-right"
+        // height: 130, // height of entire ThumbnailNavigation area when position is "far-bottom"
+        // width: 100, // width of one canvas (doubled for book view) in ThumbnailNavigation area when position is "far-right"
+      },
+    });
+  </script>
+<% else %>
+  <%= image_tag("metadata_only_placeholder.png", :id => "metadata_only_placeholder", :alt => "Placeholder Image") %>
+<% end %>
+
+<dl class="row dl-invert document-metadata">
+  <% doc_presenter.fields_to_render.each do |field_name, field| -%>
+    <dt class="blacklight-<%= field_name.parameterize %> col-md-3"><%= render_document_show_field_label document, field: field_name %></dt>
+    <dd class="blacklight-<%= field_name.parameterize %> col-md-9"><%= doc_presenter.field_value field %></dd>
+  <% end -%>
+</dl>
+
+
+
+
+  <!-- <script src="downloadMenu.js"></script> -->
+<!--<%# <% else %> %>-->
+<!--  <%# <%= image_tag("metadata_only_placeholder.png", :style => "padding: 25px 0px 25px 0px", :alt => "Placeholder Image") %> %>-->
+<!--<%# <% end %> %>-->

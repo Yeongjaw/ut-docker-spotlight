@@ -1,0 +1,9 @@
+/*
+ *= require openseadragon/openseadragon
+ */
+
+/* Removing toolbar because it contains non-functioning zoom in/out
+ paging and full screen/home page buttons */
+div.osd-toolbar {
+  display: none
+}

@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  spotlight:
+    env_file:
+      - local.env
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./src/spotlight/app:/home/rvm/app
+      - ./src/spotlight/config:/home/rvm/config
+      - ./src/spotlight/lib:/home/rvm/lib
+      - ./src/spotlight/public:/home/rvm/public
+      - /Volumes/exhibit/test:/home/rvm/storage
+    image: 'spotlight'
+    deploy:
+      mode: replicated
+      replicas: 1
